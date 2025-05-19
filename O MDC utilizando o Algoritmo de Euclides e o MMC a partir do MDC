@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(){
+    
+    double qualquer1, qualquer2;
+    int numero1, numero2;
+    int mdc, mmc;
+    int a, b, resto;
+    
+    // Sol Moreira Donason 2512130068
+    // Giovanna Martins da Silva 2512130083
+    // Gean Oliveira da Silva 25121300998
+    
+    printf("Ola! O objetivo deste codigo sera calcular o MDC de dois numeros utilizando o Algoritmo de Euclides e o MMC(a,b) a partir do MDC(a,b).\n\n");
+    
+    printf("Por favor digite o primeiro numero inteiro para calcular o MDC e MMC: \n");
+    scanf("%lf", &qualquer1);
+    
+    printf("Por favor digite o segundo numero inteiro para calcular o MDC e MMC: \n");
+    scanf("%lf", &qualquer2);
+
+    numero1 = (int)round(qualquer1);
+    numero2 = (int)round(qualquer2);
+
+    printf("\nVocê digitou %.2lf e %.2lf, que foram arredondados para %d e %d.\n",
+           qualquer1, qualquer2, numero1, numero2);
+    
+    if (numero1 == 0 || numero2 == 0) {
+        printf("Error, por favor escolha numeros inteiros, positivos, negativos ou decimais, nao use zero.\n");
+        return 0;
+    }
+    
+    a = abs(numero1);
+    b = abs(numero2);
+    
+    printf("\nCalculando o MDC.\n");
+    
+    do {
+        resto = a % b;
+        printf("\n%d = %d * %d + %d\t\n", a, a / b, b, resto);
+        a = b;
+        b = resto;
+    } while (resto != 0);
+    
+    mdc = a;
+    
+    int multiplo1 = numero1;
+    int multiplo2 = numero2;
+    int passo1 = 1, passo2 = 1;
+    
+    printf("\nCalculando o MMC a partir do MDC.\n");
+    
+    printf("\nMDC entre %d e %d: %d\n", numero1, numero2, mdc);
+
+    mmc = abs((numero1 * numero2) / mdc);
+
+    printf("\nMMC = |%d * %d| / %d = %d\n", numero1, numero2, mdc, mmc);
+    
+    printf("\nO MDC entre %d e %d e: %d\n", numero1, numero2, mdc);
+    printf("O MMC entre %d e %d e: %d\n", numero1, numero2, mmc);
+
+    return 0;
+}
