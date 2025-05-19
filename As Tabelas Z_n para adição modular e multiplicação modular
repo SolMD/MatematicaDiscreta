@@ -1,0 +1,55 @@
+#include <stdio.h>
+int main() {
+    
+    int numero;
+        
+    // Sol Moreira Donason 2512130068
+    // Giovanna Martins da Silva 2512130083
+    // Gean Oliveira da Silva 25121300998
+    
+    printf("Ola! O objetivo deste codigo sera calcular as Tabelas Z_n para adição modular e multiplicação modular.\n\n");
+
+    printf("Digite um numero para Z_n: \n");
+    scanf("%d", &numero);
+
+    if (numero <= 0) {
+        printf("O numero deve ser inteiro positivo.\n");
+        return 1;
+    }
+    
+    printf("\nTabela de Adicao Modular (Z_%d):\n", numero);
+    printf("   |");
+    for (int coluna = 0; coluna < numero; coluna++)
+        printf("%3d", coluna);
+    printf("\n---+");
+    for (int coluna = 0; coluna < numero; coluna++)
+        printf("---");
+    printf("\n");
+
+    for (int linha = 0; linha < numero; linha++) {
+        printf("%2d |", linha);
+        for (int coluna = 0; coluna < numero; coluna++) {
+            printf("%3d", (linha + coluna) % numero);
+        }
+        printf("\n");
+    }
+
+    printf("\nTabela de Multiplicacao Modular (Z_%d):\n", numero);
+    printf("   |");
+    for (int coluna = 0; coluna < numero; coluna++)
+        printf("%3d", coluna);
+    printf("\n---+");
+    for (int coluna = 0; coluna < numero; coluna++)
+        printf("---");
+    printf("\n");
+
+    for (int linha = 0; linha < numero; linha++) {
+        printf("%2d |", linha);
+        for (int coluna = 0; coluna < numero; coluna++) {
+            printf("%3d", (linha * coluna) % numero);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
